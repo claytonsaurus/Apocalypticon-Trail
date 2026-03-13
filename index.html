@@ -1088,7 +1088,13 @@ async function handleLogin(e) {
   const password = document.getElementById('login-password').value;
   try {
     const users = loadUsers();
-    if (!users[username]) { showAuthError('login', 'No account found with that username.'); return; }
+    const knownUsers = Object.keys(users);
+    if (!users[username]) {
+      showAuthError('login', knownUsers.length === 0
+        ? 'No accounts exist yet — please create one first.'
+        : `No account found for "${username}". Registered accounts: ${knownUsers.join(', ')}`);
+      return;
+    }
     const hash = await hashPw(password);
     if (users[username].password !== hash) { showAuthError('login', 'Incorrect password. Check caps lock and try again.'); return; }
     state.currentUser = username;
