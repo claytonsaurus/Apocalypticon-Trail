@@ -36,127 +36,6 @@
       line-height: 1.5;
     }
 
-    /* ── SCREENS ──────────────────────────────────────────── */
-    .screen { display: none; }
-    .screen.active { display: block; }
-
-    /* ── AUTH ─────────────────────────────────────────────── */
-    #auth-screen {
-      min-height: 100vh;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: radial-gradient(ellipse at 50% 40%, #1a3a6a 0%, var(--bg-primary) 65%);
-      padding: 24px;
-    }
-    .auth-wrapper { width: 100%; max-width: 440px; }
-
-    .auth-logo {
-      text-align: center;
-      margin-bottom: 32px;
-    }
-    .auth-logo-mark {
-      display: inline-flex;
-      align-items: center;
-      justify-content: center;
-      width: 60px; height: 60px;
-      background: linear-gradient(135deg, var(--accent), #e0a020);
-      border-radius: 16px;
-      font-size: 1.8rem;
-      margin-bottom: 12px;
-      box-shadow: 0 4px 20px rgba(240,192,64,0.3);
-    }
-    .auth-logo h1 {
-      font-size: 2rem;
-      font-weight: 800;
-      color: var(--accent);
-      letter-spacing: -0.5px;
-    }
-    .auth-logo p { color: var(--text-secondary); margin-top: 4px; font-size: 0.9rem; }
-
-    .auth-card {
-      background: var(--bg-card);
-      border: 1px solid var(--border);
-      border-radius: var(--radius);
-      padding: 32px;
-      box-shadow: var(--shadow);
-    }
-    .auth-tabs {
-      display: flex;
-      border-bottom: 1px solid var(--border);
-      margin-bottom: 28px;
-    }
-    .auth-tab {
-      flex: 1;
-      padding: 12px;
-      background: none;
-      border: none;
-      color: var(--text-muted);
-      font-size: 0.95rem;
-      cursor: pointer;
-      border-bottom: 2px solid transparent;
-      margin-bottom: -1px;
-      transition: all 0.2s;
-      font-weight: 500;
-    }
-    .auth-tab.active { color: var(--accent); border-bottom-color: var(--accent); }
-
-    .auth-form { display: none; }
-    .auth-form.active { display: block; }
-
-    .form-group { margin-bottom: 16px; }
-    .form-group label {
-      display: block;
-      font-size: 0.82rem;
-      color: var(--text-secondary);
-      margin-bottom: 6px;
-      font-weight: 500;
-      text-transform: uppercase;
-      letter-spacing: 0.04em;
-    }
-    .form-group input {
-      width: 100%;
-      background: var(--bg-input);
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      padding: 12px 14px;
-      color: var(--text-primary);
-      font-size: 0.95rem;
-      outline: none;
-      transition: border-color 0.2s;
-    }
-    .form-group input:focus { border-color: var(--border-focus); }
-    .form-group input::placeholder { color: var(--text-muted); }
-
-    .btn-primary {
-      width: 100%;
-      padding: 13px;
-      background: var(--accent);
-      color: #000;
-      border: none;
-      border-radius: var(--radius-sm);
-      font-size: 0.95rem;
-      font-weight: 700;
-      cursor: pointer;
-      transition: background 0.2s, transform 0.1s;
-      margin-top: 8px;
-      letter-spacing: 0.02em;
-    }
-    .btn-primary:hover { background: var(--accent-hover); }
-    .btn-primary:active { transform: scale(0.99); }
-
-    .auth-error {
-      background: rgba(231,76,60,0.12);
-      border: 1px solid rgba(231,76,60,0.3);
-      border-radius: var(--radius-sm);
-      padding: 10px 14px;
-      font-size: 0.85rem;
-      color: #ff6b5b;
-      margin-bottom: 14px;
-      display: none;
-    }
-    .auth-error.visible { display: block; }
-
     /* ── APP HEADER ───────────────────────────────────────── */
     #app-screen { min-height: 100vh; background: var(--bg-primary); }
 
@@ -180,31 +59,6 @@
       letter-spacing: -0.3px;
     }
     .header-logo span { color: var(--text-secondary); font-weight: 400; font-size: 0.9rem; margin-left: 6px; }
-
-    .header-user { display: flex; align-items: center; gap: 16px; }
-    .user-avatar {
-      width: 38px; height: 38px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--accent), #c07818);
-      display: flex; align-items: center; justify-content: center;
-      font-weight: 800; font-size: 0.95rem; color: #000;
-      flex-shrink: 0;
-    }
-    .user-meta { line-height: 1.3; }
-    .user-meta strong { font-size: 0.9rem; display: block; }
-    .user-meta span { font-size: 0.75rem; color: var(--text-secondary); }
-
-    .btn-logout {
-      padding: 8px 14px;
-      background: transparent;
-      border: 1px solid var(--border);
-      border-radius: var(--radius-sm);
-      color: var(--text-secondary);
-      font-size: 0.82rem;
-      cursor: pointer;
-      transition: all 0.2s;
-    }
-    .btn-logout:hover { border-color: var(--red); color: var(--red); }
 
     /* ── MAIN CONTENT ─────────────────────────────────────── */
     .app-main {
@@ -616,85 +470,12 @@
 <body>
 
 <!-- ═══════════════════════════════════════════════════════════
-     AUTH SCREEN
+     APP
 ════════════════════════════════════════════════════════════ -->
-<div id="auth-screen" class="screen active">
-  <div class="auth-wrapper">
-    <div class="auth-logo">
-      <div class="auth-logo-mark">🎓</div>
-      <h1>SkillPath</h1>
-      <p>Liberal Arts Skills Tracker</p>
-    </div>
-    <div class="auth-card">
-      <div class="auth-tabs">
-        <button class="auth-tab active" onclick="switchTab('login')">Sign In</button>
-        <button class="auth-tab"        onclick="switchTab('register')">Create Account</button>
-      </div>
-
-      <!-- LOGIN -->
-      <form id="login-form" class="auth-form active" onsubmit="handleLogin(event)">
-        <div id="login-error" class="auth-error"></div>
-        <div class="form-group">
-          <label>Username</label>
-          <input type="text" id="login-username" placeholder="Enter your username" autocomplete="username" required>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <div style="position:relative;">
-            <input type="password" id="login-password" placeholder="Enter your password" autocomplete="current-password" required style="padding-right:44px;">
-            <button type="button" onclick="togglePw('login-password',this)" style="position:absolute;right:10px;top:50%;transform:translateY(-50%);background:none;border:none;color:var(--text-muted);cursor:pointer;font-size:0.85rem;padding:4px;">Show</button>
-          </div>
-        </div>
-        <button type="submit" class="btn-primary">Sign In</button>
-      </form>
-
-      <!-- REGISTER -->
-      <form id="register-form" class="auth-form" onsubmit="handleRegister(event)">
-        <div id="register-error" class="auth-error"></div>
-        <div class="form-group">
-          <label>Full Name</label>
-          <input type="text" id="reg-name" placeholder="Your full name" required>
-        </div>
-        <div class="form-group">
-          <label>University Email</label>
-          <input type="email" id="reg-email" placeholder="your@university.edu" required>
-        </div>
-        <div class="form-group">
-          <label>Username</label>
-          <input type="text" id="reg-username" placeholder="Choose a username (letters, numbers, _)" required>
-        </div>
-        <div class="form-group">
-          <label>Password</label>
-          <input type="password" id="reg-password" placeholder="At least 6 characters" required>
-        </div>
-        <div class="form-group">
-          <label>Confirm Password</label>
-          <input type="password" id="reg-confirm" placeholder="Repeat your password" required>
-        </div>
-        <button type="submit" class="btn-primary">Create Account</button>
-      </form>
-    </div>
-  </div>
-</div>
-
-
-<!-- ═══════════════════════════════════════════════════════════
-     APP SCREEN
-════════════════════════════════════════════════════════════ -->
-<div id="app-screen" class="screen">
+<div id="app-screen">
 
   <header class="app-header">
     <div class="header-logo">SkillPath <span>Liberal Arts Tracker</span></div>
-    <div class="header-user">
-      <div style="display:flex;align-items:center;gap:10px;">
-        <div class="user-avatar" id="hdr-avatar">?</div>
-        <div class="user-meta">
-          <strong id="hdr-name">Student</strong>
-          <span id="hdr-level">Freshman Explorer</span>
-        </div>
-      </div>
-      <button class="btn-logout" onclick="handleLogout()">Sign Out</button>
-    </div>
   </header>
 
   <main class="app-main">
@@ -702,8 +483,8 @@
     <!-- Welcome Banner -->
     <div class="welcome-banner">
       <div class="welcome-text">
-        <h2 id="welcome-heading">Welcome back!</h2>
-        <p id="welcome-sub">Track your courses and watch your skills grow.</p>
+        <h2>Your Progress</h2>
+        <p id="welcome-sub">Add your first course below to start building your skills.</p>
       </div>
       <div class="welcome-stats">
         <div class="stat-item">
@@ -1004,149 +785,29 @@ const COURSES = {
   'Fashion Design':                'creative'
 };
 
-const LEVELS = [
-  { min: 0,  max: 20,  name: 'Freshman Explorer' },
-  { min: 21, max: 40,  name: 'Sophomore Scholar' },
-  { min: 41, max: 60,  name: 'Junior Achiever' },
-  { min: 61, max: 80,  name: 'Senior Leader' },
-  { min: 81, max: 100, name: 'Graduate Champion' }
-];
 
 // ─────────────────────────────────────────────
 // APPLICATION STATE
 // ─────────────────────────────────────────────
 let state = {
-  currentUser: null,
   selectedCourse: null
 };
 
 // ─────────────────────────────────────────────
 // STORAGE HELPERS
 // ─────────────────────────────────────────────
-const STORE_KEY = 'skillpath_v1_users';
-const SESSION_KEY = 'skillpath_v1_session';
+const DATA_KEY = 'skillpath_v1_data';
 
-function loadUsers() {
-  try { return JSON.parse(localStorage.getItem(STORE_KEY) || '{}'); }
+function loadData() {
+  try { return JSON.parse(localStorage.getItem(DATA_KEY) || '{}'); }
   catch { return {}; }
 }
-function saveUsers(u) { localStorage.setItem(STORE_KEY, JSON.stringify(u)); }
-function loadSession() { return localStorage.getItem(SESSION_KEY); }
-function saveSession(u) { localStorage.setItem(SESSION_KEY, u); }
-function clearSession() { localStorage.removeItem(SESSION_KEY); }
+function saveData(d) { localStorage.setItem(DATA_KEY, JSON.stringify(d)); }
 
-function getUser() {
-  const users = loadUsers();
-  return state.currentUser ? users[state.currentUser] : null;
-}
-function saveUser(data) {
-  const users = loadUsers();
-  users[state.currentUser] = data;
-  saveUsers(users);
-}
-
-// ─────────────────────────────────────────────
-// PASSWORD HASHING  (SHA-256 via Web Crypto)
-// ─────────────────────────────────────────────
-async function hashPw(pw) {
-  const buf = await crypto.subtle.digest(
-    'SHA-256',
-    new TextEncoder().encode(pw + 'skillpath_salt_2024')
-  );
-  return Array.from(new Uint8Array(buf)).map(b => b.toString(16).padStart(2,'0')).join('');
-}
-
-// ─────────────────────────────────────────────
-// AUTH FUNCTIONS
-// ─────────────────────────────────────────────
-function togglePw(inputId, btn) {
-  const input = document.getElementById(inputId);
-  if (input.type === 'password') { input.type = 'text';  btn.textContent = 'Hide'; }
-  else                           { input.type = 'password'; btn.textContent = 'Show'; }
-}
-
-function switchTab(tab) {
-  document.querySelectorAll('.auth-tab').forEach((el, i) =>
-    el.classList.toggle('active', (tab === 'login') === (i === 0))
-  );
-  document.querySelectorAll('.auth-form').forEach((el, i) =>
-    el.classList.toggle('active', (tab === 'login') === (i === 0))
-  );
-  document.getElementById('login-error').classList.remove('visible');
-  document.getElementById('register-error').classList.remove('visible');
-}
-
-function showAuthError(formId, msg) {
-  const el = document.getElementById(formId + '-error');
-  el.textContent = msg;
-  el.classList.add('visible');
-}
-
-async function handleLogin(e) {
-  e.preventDefault();
-  const username = document.getElementById('login-username').value.trim().toLowerCase();
-  const password = document.getElementById('login-password').value;
-  try {
-    const users = loadUsers();
-    const knownUsers = Object.keys(users);
-    if (!users[username]) {
-      showAuthError('login', knownUsers.length === 0
-        ? 'No accounts exist yet — please create one first.'
-        : `No account found for "${username}". Registered accounts: ${knownUsers.join(', ')}`);
-      return;
-    }
-    const hash = await hashPw(password);
-    if (users[username].password !== hash) { showAuthError('login', 'Incorrect password. Check caps lock and try again.'); return; }
-    state.currentUser = username;
-    saveSession(username);
-    showApp();
-  } catch (err) {
-    showAuthError('login', 'Login failed: ' + (err.message || 'unknown error. Try refreshing the page.'));
-  }
-}
-
-async function handleRegister(e) {
-  e.preventDefault();
-  const name     = document.getElementById('reg-name').value.trim();
-  const email    = document.getElementById('reg-email').value.trim();
-  const username = document.getElementById('reg-username').value.trim().toLowerCase();
-  const pw       = document.getElementById('reg-password').value;
-  const confirm  = document.getElementById('reg-confirm').value;
-
-  if (!/^[a-z0-9_]{3,30}$/.test(username)) {
-    showAuthError('register', 'Username must be 3–30 characters: letters, numbers, or underscores.'); return;
-  }
-  if (pw.length < 6) {
-    showAuthError('register', 'Password must be at least 6 characters.'); return;
-  }
-  if (pw !== confirm) {
-    showAuthError('register', 'Passwords do not match.'); return;
-  }
-  try {
-    const users = loadUsers();
-    if (users[username]) {
-      showAuthError('register', 'That username is already taken.'); return;
-    }
-    const hash = await hashPw(pw);
-    users[username] = { name, email, password: hash, courses: [], createdAt: new Date().toISOString() };
-    saveUsers(users);
-    state.currentUser = username;
-    saveSession(username);
-    toast(`Welcome, ${name}! Your account is ready.`, 'success');
-    showApp();
-  } catch (err) {
-    showAuthError('register', 'Registration failed: ' + (err.message || 'unknown error. Try refreshing the page.'));
-  }
-}
-
-function handleLogout() {
-  state.currentUser = null;
-  state.selectedCourse = null;
-  clearSession();
-  document.getElementById('auth-screen').classList.add('active');
-  document.getElementById('app-screen').classList.remove('active');
-  document.getElementById('login-form').reset();
-  document.getElementById('register-form').reset();
+function getData() {
+  const d = loadData();
+  if (!d.courses) d.courses = [];
+  return d;
 }
 
 // ─────────────────────────────────────────────
@@ -1175,39 +836,25 @@ function overallPct(counts) {
   return Math.round((earned / totalMax) * 100);
 }
 
-function levelName(pct) {
-  return (LEVELS.find(l => pct >= l.min && pct <= l.max) || LEVELS.at(-1)).name;
-}
 
 // ─────────────────────────────────────────────
 // RENDER
 // ─────────────────────────────────────────────
 function showApp() {
-  document.getElementById('auth-screen').classList.remove('active');
-  document.getElementById('app-screen').classList.add('active');
   renderAll();
 }
 
 function renderAll() {
-  const user = getUser();
-  if (!user) return;
-  const courses = user.courses || [];
+  const data    = getData();
+  const courses = data.courses;
   const counts  = skillCounts(courses);
   const pct     = overallPct(counts);
-  const lvl     = levelName(pct);
-  const first   = user.name.split(' ')[0];
   const active  = Object.values(counts).filter(n => n > 0).length;
 
-  // Header
-  document.getElementById('hdr-avatar').textContent = user.name[0].toUpperCase();
-  document.getElementById('hdr-name').textContent   = user.name;
-  document.getElementById('hdr-level').textContent  = lvl;
-
   // Banner
-  document.getElementById('welcome-heading').textContent = `Welcome back, ${first}!`;
   document.getElementById('welcome-sub').textContent = courses.length === 0
     ? 'Add your first course below to start building your skills.'
-    : `You have ${courses.length} course${courses.length !== 1 ? 's' : ''} logged — ${pct}% to your full potential!`;
+    : `${courses.length} course${courses.length !== 1 ? 's' : ''} logged \u00b7 ${pct}% to your full potential!`;
   document.getElementById('stat-courses').textContent = courses.length;
   document.getElementById('stat-skills').textContent  = active;
   document.getElementById('stat-pct').textContent     = pct + '%';
@@ -1362,21 +1009,20 @@ document.getElementById('course-input').addEventListener('blur', () => {
 // ─────────────────────────────────────────────
 function addCourse() {
   if (!state.selectedCourse) return;
-  const user    = getUser();
-  const courses = user.courses || [];
+  const data    = getData();
+  const courses = data.courses;
 
   if (courses.some(c => c.name === state.selectedCourse)) {
     toast('You have already logged this course.', 'warning');
     return;
   }
 
-  const skKey   = COURSES[state.selectedCourse];
-  const prevN   = courses.filter(c => COURSES[c.name] === skKey).length;
+  const skKey    = COURSES[state.selectedCourse];
+  const prevN    = courses.filter(c => COURSES[c.name] === skKey).length;
   const prevTier = tier(prevN, SKILLS[skKey].max);
 
   courses.push({ id: Date.now().toString(), name: state.selectedCourse, addedAt: new Date().toISOString() });
-  user.courses = courses;
-  saveUser(user);
+  saveData(data);
 
   const newN    = prevN + 1;
   const newTier = tier(newN, SKILLS[skKey].max);
@@ -1392,9 +1038,9 @@ function addCourse() {
 }
 
 function removeCourse(id) {
-  const user    = getUser();
-  user.courses  = (user.courses || []).filter(c => c.id !== id);
-  saveUser(user);
+  const data   = getData();
+  data.courses = data.courses.filter(c => c.id !== id);
+  saveData(data);
   renderAll();
 }
 
@@ -1467,17 +1113,9 @@ function esc(s) {
 // INIT
 // ─────────────────────────────────────────────
 (function init() {
-  const session = loadSession();
-  if (session) {
-    const users = loadUsers();
-    if (users[session]) {
-      state.currentUser = session;
-      showApp();
-      return;
-    }
-    clearSession();
-  }
-  document.getElementById('auth-screen').classList.add('active');
+  const d = loadData();
+  if (!d.courses) saveData({ courses: [] });
+  renderAll();
 })();
 </script>
 </body>
